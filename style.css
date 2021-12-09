@@ -20,6 +20,7 @@ html {
 }
  
 body {
+    width: 100%;
     font-size: 1.75rem;
     line-height: 1.5;
     font-family:'Nunito','Outfit', sans-serif;
@@ -29,24 +30,41 @@ body {
 }
 
 
+header {
+    width: 100%;
+    height: 10rem;
+}
+
 h1 {
+    color:var(--primeColor);
     font-size: 5rem;
     font-family: 'Comforter', cursive, sans-serif;
     
 }
 
-header {
-    height: 10rem;
-    margin: 0 auto;
+#header:hover{
+    
+    color:var(--secondColor);
+}
+
+
+#timer {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    border: var(--primeBorder);
+    border-radius: var(--borderRadius);
+    width: 10rem;
+    padding: 1rem;
+    text-align: left;
     
 }
 
-p {
-    display: block;
-}
+
+
 
 main {
-    position: relative;
+    position: block;
     margin: 0 auto;
     width: 60%;
     height: 500px;
@@ -54,11 +72,17 @@ main {
     border-radius: var(--borderRadius);
 
 }
+
+main:hover, #timer:hover {
+    box-shadow: inset 0px 0px 8px var(--primeColor), 0 0 15px var(--primeColor);
+    transition: all 0.5s ease-in-out;
+}
   
 #contact, #mycontact {
-    font-size:1rem;
+    font-size:0.8rem;
       text-align: center;
-   padding-bottom: 5rem;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
    text-decoration: none;
     color: var(--lightColor);
   }
