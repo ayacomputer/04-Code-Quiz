@@ -85,6 +85,11 @@ function generateQuiz() {
         answerBtnContainer.appendChild(button);
     }
 
+    if ( === ) {
+
+    } else {
+        resultContainer.innerText = "Wrong";
+    }
 }
 
 
@@ -126,4 +131,5 @@ function storeData() {
 function gameOver() {
     clearScreen();
     quizContainer.innerText = 'Game Over!';
+    resultContainer.innerText = `Your score is ${timeCounter}`;
 }
