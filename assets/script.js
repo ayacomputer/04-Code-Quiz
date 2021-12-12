@@ -84,10 +84,7 @@ function generateQuiz() {
         button.innerHTML = quiz[currentIndex].choices[i];
         answerBtnContainer.appendChild(button);
     }
-    // button.addEventListener('click',function (evt) {
-    //     var element = evt
-    //     if ()
-    // })
+
 }
 
 
