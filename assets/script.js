@@ -4,7 +4,7 @@ var startBtn = document.getElementById('startBtn');
 var container = document.getElementById('container')
 var quizContainer = document.getElementById('quiz')
 var answerBtnContainer = document.getElementById('btns');
-var resultsContainer = document.getElementById('results');
+var resultContainer = document.getElementById('result');
 var timer = document.getElementById('timer')
 
 var currentIndex = '0';
@@ -61,7 +61,7 @@ function startTimer() {
         }
         if (timeCounter === 0) {
             clearInterval(timerInterval);
-            gameOver;
+            gameOver();
         }
     }, 1000);
 
@@ -71,7 +71,7 @@ function startTimer() {
 function clearScreen() {
     quizContainer.innerText = ' ';
     answerBtnContainer.innerText = ' ';
-    resultsContainer.innerText = ' ';
+    resultContainer.innerText = ' ';
 }
 function generateQuiz() {
     currentIndex++;
@@ -84,11 +84,13 @@ function generateQuiz() {
         button.innerHTML = quiz[currentIndex].choices[i];
         answerBtnContainer.appendChild(button);
     }
+    // button.addEventListener('click',function (evt) {
+    //     var element = evt
+    //     if ()
+    // })
 }
 
-function addElements() {
 
-}
 
 function showResults() {
     if (isWin) {
@@ -98,15 +100,33 @@ function showResults() {
 }
 
 function isWin() {
-
+    isWin = true;
 }
 
 function showWin() {
+    clearScreen;
+    quizContainer.innerText = 'You win!';
+    resultContainer.innerText = `Your score is ${timeCounter}`;
+
+}
+
+function displayInput() {
+    var initial = document.createElement('input');
+    initial.setAttribute('type', 'text');
+    var email = document.createElement('input');
+    email.setAttribute('type', 'email');
+    email.setAttribute('class', 'btn');
+    var submitBtn = document.createElement('button');
+    submitBtn.setAttribute('class', 'btn');
+
+}
+
+function storeData() {
+
 
 }
 
 function gameOver() {
     clearScreen();
-
-
+    quizContainer.innerText = 'Game Over!';
 }
