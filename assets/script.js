@@ -1,7 +1,15 @@
-var quizContainer = document.getElementById('#quiz')
-var answerBtnContainer = document.getElementById('#answers');
-var resultsContainer = document.getElementById('#results');
+var startBtn = document.getElementById('startBtn');
 
+var quizContainer = document.getElementById('quiz')
+var answerBtnContainer = document.getElementById('answers');
+var resultsContainer = document.getElementById('results');
+var timer = document.getElementById('timer')
+
+var timeCounter = 60;
+timer.style.display = 'none';
+
+
+var startQuiz = startBtn.addEventListener('click', generateQuiz());
 
 const question1 = {
     question: "A term used by developers that means to improve the way your code is written while still making sure it performs the same action.",
@@ -28,34 +36,45 @@ const question2 = {
 const question3 = {
     question: "A placeholder for a piece of information that can change.",
     answers: {
-        1: 'event',
-        2: 'variable',
-        3: 'command',
-        4: 'function',
+        1: '1: event',
+        2: '2: variable',
+        3: '3: command',
+        4: '4: function',
     },
     correctAnswer: "2"
 };
 
 const question4 = {
-    question: "Putting commands in correct order so computers can read the commands.";
+    question: "Putting commands in correct order so computers can read the commands.",
     answers: {
-        1: 'event',
-        2: 'conditionals',
-        3: 'variable',
-        4: 'sequencing',
+        1: '1: event',
+        2: '2: conditionals',
+        3: '3: variable',
+        4: '4: sequencing',
     },
     correctAnswer: "4"
 };
 
 
 
+function startTimer() {
 
+    var timerInterval = setInterval(function () {
+        timer.style.display = 'block';
+        timeCounter--;
+        timer.textContent = `Time: ${timeCounter}`;
 
+        if (isWin) {
+            clearInterval(timerInterval);
+            showWin();
 
-function Timer() {
-    if (isWin) {
+        }
+        if (timeCounter === 0) {
+            clearInterval(timerInterval);
+            gameOver;
+        }
+    }, 1000);
 
-    }
 }
 
 function generateQuiz() {
@@ -63,5 +82,17 @@ function generateQuiz() {
 }
 
 function showResults() {
+
+}
+
+function isWin() {
+
+}
+
+function showWin() {
+
+}
+
+function gameOver() {
 
 }

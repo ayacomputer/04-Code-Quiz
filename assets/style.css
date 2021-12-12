@@ -74,6 +74,12 @@ main {
 
 }
 
+header {
+    display: grid;
+    justify-self: center;
+    ;
+}
+
 main:hover, #timer:hover {
     box-shadow: inset 0px 0px 8px var(--primeColor), 0 0 15px var(--primeColor);
     transition: all 0.5s ease-in-out;
