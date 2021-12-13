@@ -7,7 +7,7 @@ var answerBtnContainer = document.getElementById('btns');
 var resultContainer = document.getElementById('result');
 var timer = document.getElementById('timer')
 
-var currentIndex = -1;
+var currentIndex = 0;
 
 // timer
 var timeCounter = 61;
@@ -25,7 +25,7 @@ var startQuiz = startBtn.addEventListener('click', function () {
 
 // questions
 const quiz = [{
-    question: "Q: A term used by developers that means to improve the way your code is written while still making sure it performs the same action.",
+    question: "Q: What is a term used by developers that means to improve the way your code is written while still making sure it performs the same action.",
     choices: ['1: refactor', '2: loop', '3: pattern matching', '4: debug'],
     answer: '1: refactor'
 },
@@ -35,12 +35,12 @@ const quiz = [{
     answer: '3: boolean'
 },
 {
-    question: "Q: A placeholder for a piece of information that can change.",
+    question: "Q: What is a placeholder for a piece of information that can change.",
     choices: ['1: event', '2: variable', '3: command', '4: function'],
     answer: '2: variable'
 },
 {
-    question: "Q: Putting commands in correct order so computers can read the commands.",
+    question: "Q:What is a term used by developers that means to putting commands in correct order so computers can read the commands.",
     choices: ['1: conditionals', '2: event', '3: variable', '4: sequencing'],
     answer: '4: sequencing'
 },]
@@ -74,84 +74,48 @@ function clearScreen() {
     resultContainer.innerText = ' ';
 }
 function generateQuiz() {
-    currentIndex++;
+    console.log(('Generate Quiz'));
+    quizContainer.innerText = quiz[currentIndex].question;
+
     for (let i = 0; i < quiz[currentIndex].choices.length; i++) {
-        quizContainer.innerText = quiz[currentIndex].question;
         var button = document.createElement('button');
-        console.log(button)
+        //console.log(button)
         button.setAttribute('id', `btn${i}`)
         button.setAttribute('class', 'btn')
         button.innerHTML = quiz[currentIndex].choices[i];
+
+        button.addEventListener('click', function (event) {
+            var clickedBtn = event.target;
+
+
+            if (clickedBtn.innerHTML === quiz[currentIndex].answer) {
+
+                console.log('Correct');
+                showCorrect();
+                clearScreen();
+
+
+                console.log(currentIndex);
+
+
+                currentIndex++;
+                if (currentIndex === quiz.length) {
+                    showWin();
+
+                }
+                generateQuiz();
+            } else {
+                currentIndex++;
+
+                showWrong();
+                generateQuiz()
+            }
+        })
+
         answerBtnContainer.appendChild(button);
     }
 
-    btn0.addEventListener('click', function () {
-        console.log('working');
-        console.log(currentIndex);
-        resultContainer.innerText = '';
-        if (btn0.innerText === quiz[currentIndex].answer) {
-            showCorrect();
-            if (currentIndex === quiz.length) {
-                showWin();
-            } else {
-                clearScreen();
-                generateQuiz();
-            }
-        }
-        else {
-            showWrong();
-        }
-    })
 
-    btn1.addEventListener('click', function () {
-        console.log('working');
-        resultContainer.innerText = '';
-        if (btn1.innerText == quiz[currentIndex].answer) {
-            showCorrect();
-            if (currentIndex === quiz.length) {
-                showWin();
-            } else {
-                clearScreen();
-                generateQuiz();
-            }
-        }
-        else {
-            showWrong();
-        }
-    })
-    btn2.addEventListener('click', function () {
-        console.log('working');
-        resultContainer.innerText = '';
-        if (btn2.innerText == quiz[currentIndex].answer) {
-            showCorrect();
-            if (currentIndex === quiz.length) {
-                showWin();
-            } else {
-                clearScreen();
-                generateQuiz();
-            }
-        }
-        else {
-            showWrong();
-        }
-    })
-
-    btn3.addEventListener('click', function () {
-        console.log('working');
-        resultContainer.innerText = '';
-        if (btn3.innerText == quiz[currentIndex].answer) {
-            showCorrect();
-            if (currentIndex === quiz.length) {
-                showWin();
-            } else {
-                clearScreen();
-                generateQuiz();
-            }
-        }
-        else {
-            showWrong();
-        }
-    })
 
 
 
@@ -182,7 +146,7 @@ function isWin() {
 }
 
 function showWin() {
-    clearScreen;
+    clearScreen();
     quizContainer.innerText = 'You win!';
     resultContainer.innerText = `Your score is ${timeCounter}`;
 
