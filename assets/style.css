@@ -100,11 +100,32 @@ header {
     max-width:90%;
 }
 
-#startBtn {
-    margin: 0 auto;
-
+.dotBtn {
+    margin: 1rem auto;
+    background-color: var(--darkColor);
+    color:var(--lightColor);
+    font-family: inherit;
+    top: 2.5rem;
+    left: 2.5rem;
+    border: var(--primeBorder);
+    border-radius: var(--borderRadius);
+    width: 10rem;
+    padding: 1rem;
+    text-align: center;
 }
 
+.dotBtn:hover {
+    background-color: var(--primeColor);
+    transition: all 0.5s ease-in-out;
+}
+
+hr {
+   width:100%;
+}
+form {
+    display:grid;
+    width: 100%;
+}
 #btns {
     width:100%;
 }
@@ -153,24 +174,26 @@ main:hover, #timer:hover {
     transition: all 0.5s ease-in-out;
 }
 
-#startBtn {
+
+
+
+  
+.userInput {
+    display: inline;
     background-color: var(--darkColor);
     color:var(--lightColor);
     font-family: inherit;
     top: 2.5rem;
     left: 2.5rem;
-    border: var(--primeBorder);
+    border: var(--secondBorder);
     border-radius: var(--borderRadius);
-    width: 10rem;
+    min-width: 10rem;
     padding: 1rem;
     text-align: center;
 }
 
-#startBtn:hover {
-    background-color: var(--primeColor);
-    transition: all 0.5s ease-in-out;
-}
-  
+
+
 #contact, #mycontact {
     font-size:0.8rem;
       text-align: center;

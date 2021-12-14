@@ -24,7 +24,7 @@
                     If you answer incorrectly, we will subtract 10 seconds from your time.<br>
                     The remaining seconds will be your score<br>
                     Good luck!</h2>
-                <button id='startBtn'>START</button>
+                <button id='startBtn' class='dotBtn'>START</button>
             </div>
 
             <div id="answers">
@@ -33,6 +33,18 @@
 
             <div id="results">
                 <h2 id="result"></h2>
+                <form id="userData">
+
+                    <hr>
+                    <label for="initial">Your initial:
+                        <input type='text' id='initial' class='userInput' placeholder='Enter your initial here'>
+                    </label>
+                    <button type="submit" class='dotBtn'>SUBMIT</button>
+
+                </form>
+
+                <ul id='scoreData'>
+                </ul>
             </div>
         </section>
     </main>

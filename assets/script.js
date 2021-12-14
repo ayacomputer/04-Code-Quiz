@@ -5,9 +5,11 @@ var container = document.getElementById('container')
 var quizContainer = document.getElementById('quiz')
 var answerBtnContainer = document.getElementById('btns');
 var resultContainer = document.getElementById('result');
+var userDataContainer = document.getElementById('userData');
 var timer = document.getElementById('timer')
 
 var currentIndex = 0;
+userDataContainer.style.display = 'none';
 
 // timer
 var timeCounter = 61;
@@ -94,39 +96,34 @@ function generateQuiz() {
                 showCorrect();
                 clearScreen();
 
-
                 console.log(currentIndex);
-
 
                 currentIndex++;
                 if (currentIndex === quiz.length) {
+                    isWin = true;
                     showWin();
-
                 }
+
                 generateQuiz();
+
             } else {
+                showWrong();
                 currentIndex++;
 
-                showWrong();
-                generateQuiz()
+
             }
+            clearScreen();
+            generateQuiz();
         })
 
         answerBtnContainer.appendChild(button);
     }
 
-
-
-
-
-
 }
-
 
 
 function showCorrect() {
     resultContainer.innerText = `Correct`;
-
 }
 
 function showWrong() {
@@ -139,29 +136,14 @@ function showWrong() {
 }
 
 
-
-
-function isWin() {
-    isWin = true;
-}
-
 function showWin() {
     clearScreen();
     quizContainer.innerText = 'You win!';
     resultContainer.innerText = `Your score is ${timeCounter}`;
-
+    userDataContainer.style.display = 'block';
+    showHighScore();
 }
 
-function displayInput() {
-    var initial = document.createElement('input');
-    initial.setAttribute('type', 'text');
-    var email = document.createElement('input');
-    email.setAttribute('type', 'email');
-    email.setAttribute('class', 'btn');
-    var submitBtn = document.createElement('button');
-    submitBtn.setAttribute('class', 'btn');
-
-}
 
 // function storeData() {
 
@@ -172,4 +154,14 @@ function gameOver() {
     clearScreen();
     quizContainer.innerText = 'Game Over!';
     // resultContainer.innerText = `Your score is ${timeCounter}`;
+}
+
+function showHighScore() {
+    clearScreen();
+    quizContainer.innerText = 'High Score'
+}
+
+function clearScore() {
+    clearScreen();
+    quizContainer.innerText = 'High Score'
 }
