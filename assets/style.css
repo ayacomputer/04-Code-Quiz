@@ -135,6 +135,7 @@ form {
 
 }
 
+
 ul{
     display:flex;
     justify-content: space-between; 
@@ -172,8 +173,6 @@ ul{
     align-items: center;
     justify-content: center;
 
-
-
 }
 
 #result{
@@ -184,6 +183,7 @@ ul{
 
 #correction {
     position: absolute;
+    font-size: 2rem;
 }
 
 

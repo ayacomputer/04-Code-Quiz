@@ -10,6 +10,7 @@ var userDataContainer = document.getElementById('userData');
 var timer = document.getElementById('timer');
 var submitBtn = document.getElementById('submitBtn');
 var scoreData = document.getElementById('scoreData');
+var initial = document.getElementById('initial');
 
 var currentIndex = 0;
 userDataContainer.style.display = 'none';
@@ -120,15 +121,21 @@ function generateQuiz() {
 
 }
 
-submitBtn.addEventListener('click', function (event) {
-    var EnteredInitial = event.target;
-    console.log(event);
-    console.log(EnteredInitial);
+submitBtn.addEventListener('click', function () {
+
+    var alphabets = 'ABCDEFGHIJKLMNOPQRWSTUVWXYZ'
+    if (alphabets.includes(initial.value)) {
+        clearScreen;
+        showHighScore()
+
+    } else {
+        alert('Please enter the invalid initial. Initials have to be capitalized.')
+    }
 })
 
-// clearBtn.addEventListener('click', function () {
-//     clearScore();
-// })
+clearBtn.addEventListener('click', function () {
+    clearScore();
+})
 
 
 function nextQuiz() {
@@ -139,11 +146,11 @@ function nextQuiz() {
 }
 
 function showCorrect() {
-    correctContainer.innerText = `Correct`;
+    correctContainer.innerText = 'Correct!';
 }
 
 function showWrong() {
-    correctContainer.innerText = `Wrong`;
+    correctContainer.innerText = 'Wrong!';
     setTimeout(function () {
 
         correctContainer.innerText = '';
@@ -165,23 +172,17 @@ function showScore() {
 }
 
 
-// function storeData() {
-
-
-// }
-
 function gameOver() {
     clearScreen();
     quizContainer.innerText = 'Game Over!';
-    // resultContainer.innerText = `Your score is ${timeCounter}`;
 }
 
 function showHighScore() {
-    clearScreen();
-    quizContainer.innerText = 'High Score'
+    quizContainer.innerText = 'High Score:';
+    resultContainer.innerHTML = `${timeCounter}`;
 }
 
 function clearScore() {
     clearScreen();
-    quizContainer.innerText = 'High Score'
+    quizContainer.innerText = '     '
 }
