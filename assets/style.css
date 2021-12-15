@@ -95,9 +95,8 @@ header {
     display: flex;
     flex-direction: column;
     margin: 2rem auto;
-    align-items: space-between;
-    justify-content: center;
-    max-width:90%;
+    justify-content: space-between;
+    padding:5rem;
 }
 
 .dotBtn {
@@ -160,12 +159,31 @@ ul{
     background-color: var(--primeColor);
 }
 
+
+
 #results {
+    /* display:block; */
     width: 80%;
     margin: 3rem auto;
     color: var(--primeColor);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 
+
+}
+
+#result{
+    font-size:3.5rem;
+    position:absolute;
+    bottom: 3.5em;
+}
+
+#correction {
+    position: absolute;
 }
 
 

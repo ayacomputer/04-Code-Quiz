@@ -5,6 +5,7 @@ var container = document.getElementById('container')
 var quizContainer = document.getElementById('quiz')
 var answerBtnContainer = document.getElementById('btns');
 var resultContainer = document.getElementById('result');
+var correctContainer = document.getElementById('correction');
 var userDataContainer = document.getElementById('userData');
 var timer = document.getElementById('timer');
 var submitBtn = document.getElementById('submitBtn');
@@ -77,7 +78,7 @@ function startTimer() {
 function clearScreen() {
     quizContainer.innerText = ' ';
     answerBtnContainer.innerText = ' ';
-    resultContainer.innerText = ' ';
+    correctContainer.innerText = ' ';
 }
 function generateQuiz() {
     console.log(('Generate Quiz'));
@@ -112,8 +113,6 @@ function generateQuiz() {
             } else {
                 showWrong();
             }
-            // clearScreen();
-            // generateQuiz();
         })
 
         answerBtnContainer.appendChild(button);
@@ -140,14 +139,14 @@ function nextQuiz() {
 }
 
 function showCorrect() {
-    resultContainer.innerText = `Correct`;
+    correctContainer.innerText = `Correct`;
 }
 
 function showWrong() {
-    resultContainer.innerText = `Wrong`;
+    correctContainer.innerText = `Wrong`;
     setTimeout(function () {
 
-        resultContainer.innerText = '';
+        correctContainer.innerText = '';
     }, 600);
 
     if (timeCounter >= 10) {
