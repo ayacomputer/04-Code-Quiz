@@ -6,14 +6,18 @@ var quizContainer = document.getElementById('quiz')
 var answerBtnContainer = document.getElementById('btns');
 var resultContainer = document.getElementById('result');
 var userDataContainer = document.getElementById('userData');
-var timer = document.getElementById('timer')
+var timer = document.getElementById('timer');
+var submitBtn = document.getElementById('submitBtn');
+var scoreData = document.getElementById('scoreData');
 
 var currentIndex = 0;
 userDataContainer.style.display = 'none';
 
+
 // timer
 var timeCounter = 61;
 timer.style.display = 'none';
+
 // isWin
 var isWin = false;
 
@@ -58,7 +62,7 @@ function startTimer() {
 
         if (isWin) {
             clearInterval(timerInterval);
-            showWin();
+            showScore();
 
         }
         if (timeCounter === 0) {
@@ -94,26 +98,22 @@ function generateQuiz() {
 
                 console.log('Correct');
                 showCorrect();
-                clearScreen();
-
                 console.log(currentIndex);
 
                 currentIndex++;
+
                 if (currentIndex === quiz.length) {
                     isWin = true;
-                    showWin();
+                    showScore();
+                    return;
                 }
-
-                generateQuiz();
+                nextQuiz();
 
             } else {
                 showWrong();
-                currentIndex++;
-
-
             }
-            clearScreen();
-            generateQuiz();
+            // clearScreen();
+            // generateQuiz();
         })
 
         answerBtnContainer.appendChild(button);
@@ -121,6 +121,23 @@ function generateQuiz() {
 
 }
 
+submitBtn.addEventListener('click', function (event) {
+    var EnteredInitial = event.target;
+    console.log(event);
+    console.log(EnteredInitial);
+})
+
+// clearBtn.addEventListener('click', function () {
+//     clearScore();
+// })
+
+
+function nextQuiz() {
+    var timeOut = setTimeout(function () {
+        clearScreen();
+        generateQuiz();
+    }, 600);
+}
 
 function showCorrect() {
     resultContainer.innerText = `Correct`;
@@ -128,6 +145,11 @@ function showCorrect() {
 
 function showWrong() {
     resultContainer.innerText = `Wrong`;
+    setTimeout(function () {
+
+        resultContainer.innerText = '';
+    }, 600);
+
     if (timeCounter >= 10) {
         timeCounter -= 10;
     } else {
@@ -136,12 +158,11 @@ function showWrong() {
 }
 
 
-function showWin() {
+function showScore() {
     clearScreen();
     quizContainer.innerText = 'You win!';
     resultContainer.innerText = `Your score is ${timeCounter}`;
     userDataContainer.style.display = 'block';
-    showHighScore();
 }
 
 
