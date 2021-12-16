@@ -17,7 +17,7 @@ userDataContainer.style.display = 'none';
 
 
 // timer
-var timeCounter = 61;
+var timeCounter = 60;
 timer.style.display = 'none';
 
 // isWin
@@ -146,11 +146,11 @@ function nextQuiz() {
 }
 
 function showCorrect() {
-    correctContainer.innerText = 'Correct!';
+    correctContainer.innerText = 'Correct';
 }
 
 function showWrong() {
-    correctContainer.innerText = 'Wrong!';
+    correctContainer.innerText = 'Wrong';
     setTimeout(function () {
 
         correctContainer.innerText = '';
@@ -184,5 +184,5 @@ function showHighScore() {
 
 function clearScore() {
     clearScreen();
-    quizContainer.innerText = '     '
+    quizContainer.innerText = '    '
 }
