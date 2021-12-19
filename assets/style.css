@@ -81,6 +81,11 @@ main {
 
 }
 
+#container {
+    width: 100%;
+}
+
+
 header {
     justify-content: center;
 
@@ -89,9 +94,11 @@ header {
 #startMessage{
     display: inline;
     padding: 2rem;
+    font-size: 2.2rem;
 }
 
 #quiz {
+    font-size: 2.2rem;
     display: flex;
     flex-direction: column;
     margin: 2rem auto;
@@ -127,6 +134,10 @@ form {
 }
 #btns {
     width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center;
 }
 
 #answers {
@@ -135,12 +146,6 @@ form {
 
 }
 
-
-ul{
-    display:flex;
-    justify-content: space-between; 
-    align-items: center;
-}
 
 .btn, legend {
     
@@ -163,7 +168,6 @@ ul{
 
 
 #results {
-    /* display:block; */
     width: 80%;
     margin: 3rem auto;
     color: var(--primeColor);
@@ -172,12 +176,14 @@ ul{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
 
 }
 
 #result{
     font-size:3.5rem;
     position: relative;
+    bottom: 3rem;
 }
 
 #correction {
@@ -195,7 +201,11 @@ main:hover, #timer:hover {
 fieldset {
     margin:1rem auto;
     border: var(--secondBorder);
+    padding: 3rem;
+    border-radius: var(--borderRadius);
+    max-height: 80%;
 }
+
 
 
   
@@ -214,10 +224,15 @@ fieldset {
 }
 
 
-#savedScores, .scoreList {
+#savedScores {
     padding: 1rem;
     margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    overflow-y: scroll;
 }
+
 #contact, #mycontact {
     font-size:0.8rem;
       text-align: center;

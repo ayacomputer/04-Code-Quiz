@@ -151,9 +151,9 @@ userDataContainer.addEventListener('submit', function (event) {
 
 });
 
-var userDataArr = [];
 
 function saveScore() {
+    var userDataArr = JSON.parse(localStorage.getItem('highScores')) || [];
     var userData = {
         'score': timeCounter,
         'initial': initial.value,
@@ -165,6 +165,7 @@ function saveScore() {
 }
 
 function showSavedScores() {
+    quizContainer.style.display = 'none';
     var savedScores = localStorage.getItem('highScores');
     console.log(savedScores);
     var savedHighScores = JSON.parse(savedScores);
