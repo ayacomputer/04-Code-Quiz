@@ -24,3 +24,5 @@ the user can save their initials and their score.
 ## Product
 
 Link: https://ayacomputer.github.io/04-Code-Quiz/
+
+![This animation shows the product's function](./assets/product.gif)
