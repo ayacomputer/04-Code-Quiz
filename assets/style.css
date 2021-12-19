@@ -187,6 +187,7 @@ form {
 }
 
 #correction {
+    color: var(--primeColor);
     position: absolute;
     font-size: 2rem;
 }
