@@ -123,9 +123,10 @@ function generateQuiz() {
 
 submitBtn.addEventListener('click', function () {
 
-    var alphabets = 'ABCDEFGHIJKLMNOPQRWSTUVWXYZ'
+    const alphabets = ['ABCDEFGHIJKLMNOPQRWSTUVWXYZ'].split();
+    console.log(alphabets);
     if (alphabets.includes(initial.value)) {
-        clearScreen;
+        console.log(initial.value);
         showHighScore()
 
     } else {
@@ -133,9 +134,9 @@ submitBtn.addEventListener('click', function () {
     }
 })
 
-clearBtn.addEventListener('click', function () {
-    clearScore();
-})
+// clearBtn.addEventListener('click', function () {
+//     clearScore();
+// })
 
 
 function nextQuiz() {
