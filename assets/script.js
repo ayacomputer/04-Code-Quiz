@@ -14,6 +14,9 @@ var scoreData = document.getElementById('scoreData');
 var initial = document.getElementById('initial');
 var highScoreContainer = document.getElementById('highScoreContainer');
 
+var goBackBtn = document.getElementById('goBackBtn');
+var clearBtn = document.getElementById('clearBtn');
+
 var currentIndex = 0;
 userDataContainer.style.display = 'none';
 highScoreContainer.style.display = 'none';
@@ -85,6 +88,7 @@ function clearScreen() {
     answerBtnContainer.innerText = ' ';
     correctContainer.innerText = ' ';
 }
+
 function generateQuiz() {
     console.log(('Generate Quiz'));
     quizContainer.innerText = quiz[currentIndex].question;
@@ -163,7 +167,6 @@ submitBtn.addEventListener('submit', function (event) {
     saveScore();
     clearScreen();
     highScoreContainer.style.display = 'block';
-
 
 });
 
