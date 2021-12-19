@@ -158,20 +158,28 @@ userDataContainer.addEventListener('submit', function (event) {
 var userDataArr = [];
 
 function saveScore() {
-    var initialValue = initial.value;
     var userData = {
         'score': timeCounter,
         'initial': initial.value,
     }
-    userDataArr.push(userData)
+    userDataArr.push(userData);
     console.log(userDataArr);
     var savedData = localStorage.setItem('highScores', JSON.stringify(userDataArr));
+
 }
 
 function showSavedScores() {
-    var liEl = document.createElement('li');
-    liEl.innerText = `Score: ${timeCounter} - ${initial.value}`
-    savedScoresUl.append(liEl);
+    var savedScores = localStorage.getItem('highScores');
+    console.log(savedScores);
+    var savedHighScores = JSON.parse(savedScores);
+
+    for (let i = 0; i < savedHighScores.length; i++) {
+
+        var highScoreP = document.createElement('p');
+        highScoreP.innerText = `Score: ${savedHighScores[i].score} - ${savedHighScores[i].initial}`
+        savedScoresUl.append(highScoreP);
+
+    }
 }
 
 
