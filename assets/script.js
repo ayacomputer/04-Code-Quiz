@@ -160,7 +160,7 @@ function saveScore() {
     }
     userDataArr.push(userData);
     console.log(userDataArr);
-    var savedData = localStorage.setItem('highScores', JSON.stringify(userDataArr));
+    localStorage.setItem('highScores', JSON.stringify(userDataArr));
 
 }
 
@@ -182,6 +182,7 @@ function showSavedScores() {
 
 clearBtn.addEventListener('click', function () {
     localStorage.removeItem('highScores');
+    savedScoresUl.innerText = 'Score Cleared'
 })
 
 goBackBtn.addEventListener('click', function (event) {

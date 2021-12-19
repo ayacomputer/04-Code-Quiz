@@ -214,7 +214,7 @@ fieldset {
 }
 
 
-.scoreList {
+#savedScores, .scoreList {
     padding: 1rem;
     margin: 1rem auto;
 }
