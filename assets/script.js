@@ -11,8 +11,11 @@ var timer = document.getElementById('timer');
 
 var submitBtn = document.getElementById('submitBtn');
 var scoreData = document.getElementById('scoreData');
+var initialContainer = document.getElementById('initialContainer');
 var initial = document.getElementById('initial');
 var highScoreContainer = document.getElementById('highScoreContainer');
+
+var savedScoresUl = document.getElementById('savedScores');
 
 var goBackBtn = document.getElementById('goBackBtn');
 var clearBtn = document.getElementById('clearBtn');
@@ -87,6 +90,7 @@ function clearScreen() {
     quizContainer.innerText = ' ';
     answerBtnContainer.innerText = ' ';
     correctContainer.innerText = ' ';
+    resultContainer.innerText = ' ';
 }
 
 function generateQuiz() {
@@ -129,70 +133,56 @@ function generateQuiz() {
 
 }
 
+
+// saves score
+
 var scoreArr = [];
-localStorage.getItem('highScore');
+var savedData = JSON.parse(localStorage.getItem("highScore"));
 
-if (scoreArr === '') {
-    scoreArr = [];
-}
 
-function saveScore(event) {
+userDataContainer.addEventListener('submit', function (event) {
     event.preventDefault();
-
-    var initialValue = initial.value;
-
-    var userData = {
-        'initial': initial.value,
-        'score': timeCounter,
-    }
-
-    console.log(userData);
-
-    if (initialValue === '') {
-        alert('Please enter your Initials');
+    saveScore();
+    console.log(initial.value);
+    if (initial.value === '') {
+        alert('Please Enter Your Initials.');
         return;
     }
     clearScreen();
-
-    var savedScore = localStorage.setItem('highScore', userData);
-
-
-}
-
-
-
-
-submitBtn.addEventListener('submit', function (event) {
-    event.preventDefault();
-    saveScore();
-    clearScreen();
+    initialContainer.style.display = 'none';
     highScoreContainer.style.display = 'block';
+    showSavedScores();
 
 });
 
+var userDataArr = [];
 
-for (let i = 0; i < localStorage.length; i++) {
-    const initialValue = localStorage.initialValue[i];
-    const value = localStorage.getItem(initialValue);
-    scoreData.innerHTML += `${timeCounter}: ${value} <br/>`
+function saveScore() {
+    var initialValue = initial.value;
+    var userData = {
+        'score': timeCounter,
+        'initial': initial.value,
+    }
+    userDataArr.push(userData)
+    console.log(userDataArr);
+    var savedData = localStorage.setItem('highScores', JSON.stringify(userDataArr));
+}
+
+function showSavedScores() {
+    var liEl = document.createElement('li');
+    liEl.innerText = `Score: ${timeCounter} - ${initial.value}`
+    savedScoresUl.append(liEl);
 }
 
 
+clearBtn.addEventListener('click', function () {
+    localStorage.removeItem('highScores');
+})
 
-// const alphabets = ['ABCDEFGHIJKLMNOPQRWSTUVWXYZ'].split();
-// console.log(alphabets);
-// // if (alphabets.includes(initial.value)) {
-// //     console.log(initial.value);
-// //     showHighScore()
-
-// // } else {
-// //     alert('Please enter the invalid initial. Initials have to be capitalized.')
-// // }
-
-
-// clearBtn.addEventListener('click', function () {
-//     clearScore();
-// })
+goBackBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    location.reload();
+})
 
 
 function nextQuiz() {

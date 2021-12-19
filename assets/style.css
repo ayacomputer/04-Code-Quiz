@@ -96,7 +96,7 @@ header {
     flex-direction: column;
     margin: 2rem auto;
     justify-content: space-between;
-    padding:5rem;
+    padding:3rem;
 }
 
 .dotBtn {
@@ -177,8 +177,7 @@ ul{
 
 #result{
     font-size:3.5rem;
-    /* position:absolute; */
-    bottom: 5em;
+    position: relative;
 }
 
 #correction {
