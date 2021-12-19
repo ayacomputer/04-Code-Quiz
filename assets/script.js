@@ -125,16 +125,21 @@ function generateQuiz() {
 
 submitBtn.addEventListener('submit', function (event) {
     event.preventDefault();
+
     var initialValue = initial.value;
     console.log(initialValue);
 
-    if (initialValue) {
-
-        localStorage.setItem(timeCounter, initialValue);
-        location.reload();
+    if (initialValue === '') {
+        alert('Please enter your Initials');
+        return;
     }
+    var savedScore = localStorage.setItem('highScore', initialValue);
+    var scoreArr = [];
 
-    alert('Please enter your Initials')
+
+    location.reload();
+
+
 });
 
 
