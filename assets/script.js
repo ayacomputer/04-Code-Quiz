@@ -12,9 +12,12 @@ var timer = document.getElementById('timer');
 var submitBtn = document.getElementById('submitBtn');
 var scoreData = document.getElementById('scoreData');
 var initial = document.getElementById('initial');
+var highScoreContainer = document.getElementById('highScoreContainer');
 
 var currentIndex = 0;
 userDataContainer.style.display = 'none';
+highScoreContainer.style.display = 'none';
+
 
 
 // timer
@@ -122,22 +125,44 @@ function generateQuiz() {
 
 }
 
+var scoreArr = [];
+localStorage.getItem('highScore');
 
-submitBtn.addEventListener('submit', function (event) {
+if (scoreArr === '') {
+    scoreArr = [];
+}
+
+function saveScore(event) {
     event.preventDefault();
 
     var initialValue = initial.value;
-    console.log(initialValue);
+
+    var userData = {
+        'initial': initial.value,
+        'score': timeCounter,
+    }
+
+    console.log(userData);
 
     if (initialValue === '') {
         alert('Please enter your Initials');
         return;
     }
-    var savedScore = localStorage.setItem('highScore', initialValue);
-    var scoreArr = [];
+    clearScreen();
+
+    var savedScore = localStorage.setItem('highScore', userData);
 
 
-    location.reload();
+}
+
+
+
+
+submitBtn.addEventListener('submit', function (event) {
+    event.preventDefault();
+    saveScore();
+    clearScreen();
+    highScoreContainer.style.display = 'block';
 
 
 });
