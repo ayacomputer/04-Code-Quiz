@@ -172,6 +172,7 @@ function showSavedScores() {
     for (let i = 0; i < savedHighScores.length; i++) {
 
         var highScoreP = document.createElement('p');
+        highScoreP.setAttribute('class', 'scoreList');
         highScoreP.innerText = `Score: ${savedHighScores[i].score} - ${savedHighScores[i].initial}`
         savedScoresUl.append(highScoreP);
 
