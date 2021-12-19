@@ -35,16 +35,25 @@
                 <h2 id="result"></h2>
                 <h2 id="correction"></h2>
                 <form id="userData">
-
                     <hr>
-                    <label for="initial">Your initial:
-                        <input type='text' id='initial' class='userInput' placeholder='Enter your initial here'>
-                    </label>
-                    <button type="submit" id='submitBtn' class='dotBtn'>SUBMIT</button>
+                    <fieldset>
+                        <legend>Register Your Data</legend>
+                        <label for="initial">Your initial:
+                            <input type='text' id='initial' class='userInput' placeholder='Enter your initial here'>
+                        </label>
+                        <button type="submit" id='submitBtn' class='dotBtn'>SUBMIT</button>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Score</legend>
+                        <div class='scoreData'>
+                            <ul id='scores'>
+
+                            </ul>
+                        </div>
+                    </fieldset>
 
                 </form>
 
-                <ul id='scoreData'>
                 </ul>
             </div>
         </section>

@@ -8,6 +8,7 @@ var resultContainer = document.getElementById('result');
 var correctContainer = document.getElementById('correction');
 var userDataContainer = document.getElementById('userData');
 var timer = document.getElementById('timer');
+
 var submitBtn = document.getElementById('submitBtn');
 var scoreData = document.getElementById('scoreData');
 var initial = document.getElementById('initial');
@@ -121,20 +122,27 @@ function generateQuiz() {
 
 }
 
-function resultSubmit(event) {
-    var liEl = document.createElement('li');
-    var resultInput = event.target;
-    liEl.innerText = `Score:${timeCounter} : ${resultInput}`
 
-    if (initial.length === 0) {
-        return;
+submitBtn.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var initialValue = initial.value;
+    console.log(initialValue);
+
+    if (initialValue) {
+
+        localStorage.setItem(timeCounter, initialValue);
+        location.reload();
     }
 
+    alert('Please enter your Initials')
+});
+
+
+for (let i = 0; i < localStorage.length; i++) {
+    const initialValue = localStorage.initialValue[i];
+    const value = localStorage.getItem(initialValue);
+    scoreData.innerHTML += `${timeCounter}: ${value} <br/>`
 }
-
-submitBtn.addEventListener('click', resultSubmit());
-
-
 
 
 
@@ -186,6 +194,7 @@ function showScore() {
     resultContainer.innerText = `Your score is ${timeCounter}`;
     userDataContainer.style.display = 'block';
 }
+
 
 
 function gameOver() {

@@ -142,7 +142,7 @@ ul{
     align-items: center;
 }
 
-.btn {
+.btn, legend {
     
     background-color: var(--darkColor);
     color:var(--lightColor);
@@ -177,8 +177,8 @@ ul{
 
 #result{
     font-size:3.5rem;
-    position:absolute;
-    bottom: 3.5em;
+    /* position:absolute; */
+    bottom: 5em;
 }
 
 #correction {
@@ -193,7 +193,10 @@ main:hover, #timer:hover {
 }
 
 
-
+fieldset {
+    margin:1rem auto;
+    border: var(--secondBorder);
+}
 
   
 .userInput {
