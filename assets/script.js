@@ -121,18 +121,33 @@ function generateQuiz() {
 
 }
 
-submitBtn.addEventListener('click', function () {
+function resultSubmit(event) {
+    var liEl = document.createElement('li');
+    var resultInput = event.target;
+    liEl.innerText = `Score:${timeCounter} : ${resultInput}`
 
-    const alphabets = ['ABCDEFGHIJKLMNOPQRWSTUVWXYZ'].split();
-    console.log(alphabets);
-    if (alphabets.includes(initial.value)) {
-        console.log(initial.value);
-        showHighScore()
-
-    } else {
-        alert('Please enter the invalid initial. Initials have to be capitalized.')
+    if (initial.length === 0) {
+        return;
     }
-})
+
+}
+
+submitBtn.addEventListener('click', resultSubmit());
+
+
+
+
+
+// const alphabets = ['ABCDEFGHIJKLMNOPQRWSTUVWXYZ'].split();
+// console.log(alphabets);
+// // if (alphabets.includes(initial.value)) {
+// //     console.log(initial.value);
+// //     showHighScore()
+
+// // } else {
+// //     alert('Please enter the invalid initial. Initials have to be capitalized.')
+// // }
+
 
 // clearBtn.addEventListener('click', function () {
 //     clearScore();
