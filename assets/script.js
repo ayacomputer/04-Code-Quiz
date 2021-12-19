@@ -136,10 +136,6 @@ function generateQuiz() {
 
 // saves score
 
-var scoreArr = [];
-var savedData = JSON.parse(localStorage.getItem("highScore"));
-
-
 userDataContainer.addEventListener('submit', function (event) {
     event.preventDefault();
     saveScore();
