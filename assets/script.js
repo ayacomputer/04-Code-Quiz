@@ -1,4 +1,3 @@
-// variables
 var startBtn = document.getElementById('startBtn');
 
 var container = document.getElementById('container')
@@ -26,22 +25,20 @@ highScoreContainer.style.display = 'none';
 
 
 
-// timer
 var timeCounter = 60;
 timer.style.display = 'none';
 
-// isWin
+
 var isWin = false;
 
 
-// functions
 var startQuiz = startBtn.addEventListener('click', function () {
     startTimer();
     clearScreen();
     generateQuiz();
 });
 
-// questions
+
 const quiz = [{
     question: "Q: What is a term used by developers that means to improve the way your code is written while still making sure it performs the same action.",
     choices: ['1: refactor', '2: loop', '3: pattern matching', '4: debug'],
@@ -64,7 +61,6 @@ const quiz = [{
 },]
 
 
-// timer
 function startTimer() {
 
     var timerInterval = setInterval(function () {
@@ -99,7 +95,6 @@ function generateQuiz() {
 
     for (let i = 0; i < quiz[currentIndex].choices.length; i++) {
         var button = document.createElement('button');
-        //console.log(button)
         button.setAttribute('id', `btn${i}`)
         button.setAttribute('class', 'btn')
         button.innerHTML = quiz[currentIndex].choices[i];
@@ -134,7 +129,6 @@ function generateQuiz() {
 }
 
 
-// saves score
 
 userDataContainer.addEventListener('submit', function (event) {
     event.preventDefault();
